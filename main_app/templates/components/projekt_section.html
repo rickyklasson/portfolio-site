@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- Container for landing page -->
+<section id="projekt" class="relative snap-start min-w-screen min-h-screen overflow-y-hidden">
+    <div class="absolute w-screen h-screen flex flex-col px-9">
+        <!-- Fixed page title -->
+        <h2 class="uppercase text-prim text-4xl font-light opacity-40 tracking-[0.35rem] mt-14">
+            referenser</h2>
+        <!-- Project scrollbar -->
+        <div class="flex flex-col min-w-screen mb-24">
+            <div class="relative my-2">
+                <div class="absolute top-0 border-t-2 border-prim w-[20%]"></div>
+                <div class="absolute top-0 border-t-2 border-prim w-[100%] opacity-25"></div>
+            </div>
+            <div class="flex justify-between text-gray-300 text-sm font-light">
+                <p>01 / 05</p>
+                <p>Scroll</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Multi project container -->
+    <div class="max-w-screen">
+        <div class="flex overflow-x-scroll">
+            {% include 'components/projekt.html' with nr="01" bg_img="images/pr_hero_jjl.jpg" only %}
+            {% include 'components/projekt.html' with nr="02" bg_img="images/pr_hero_ex.jpg" only %}
+        </div>
+    </div>
+</section>
