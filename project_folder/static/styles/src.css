@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@layer components {
+  body {
+    @apply bg-bg text-bright;
+  }
+}

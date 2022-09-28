@@ -1,0 +1,30 @@
+{% load static %}
+
+<!-- Container for landing page -->
+<section id="projekt" class="relative snap-start w-screen h-screen overflow-hidden">
+    <!-- Fixed page title -->
+    <h2 class="absolute uppercase text-prim text-3xl font-light opacity-70 tracking-[0.35rem] mt-11 ml-9">
+        referenser</h2>
+
+    <!-- Multi project container -->
+    <div class="relative">
+        <!-- Single project container -->
+        <div class="w-screen h-screen">
+            <img src="{% static 'images/pr_hero_jjl.jpg' %}" alt="JJL Projekt hero image"
+                class="absolute opacity-40 object-cover min-h-screen min-w-screen -z-50">
+
+            <!-- Project text container -->
+            <div class="flex flex-col gap-24 min-h-screen justify-center px-9 text-prim">
+                <h1 class="text-7xl font-medium opacity-30">01</h1>
+                <div>
+                    <h3 class="text-2xl font-bold opacity-75">JJL Entreprenad Concept</h3>
+                    <p class="text-bright text-lg leading-6">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Odit illum eveniet velit pariatur ipsum, doloremque natus tempora alias sequi eligendi
+                        repudiandae possimus officiis quia vel culpa sapiente sed harum debitis suscipit doloribus
+                        impedit explicabo. Commodi?</p>
+                    <div class="flex justify-end mt-2"><a href="#" class="font-medium text-lg text-prim">Till projekt</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

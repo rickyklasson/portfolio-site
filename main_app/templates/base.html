@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+        ARK Webb och Mjukvara
+    </title>
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {% block styles %} {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Insert fonts here -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles/out.css' %}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    {% endblock styles %}
+</head>
+
+<body x-data="{menu_open: false}">
+    <!-- Insert main code here -->
+    <div class="snap-proximity snap-y overflow-scroll h-screen scroll-smooth">
+    {% block content %}
+    {% endblock content %}
+    </div>
+    <nav class="fixed bottom-0 flex flex-col items-end">
+        <!-- Navigation menu -->
+        <div class="flex flex-col min-w-full py-4 items-end gap-4 text-[14px] text-right uppercase tracking-[0.2rem] pr-[2.8rem] transition-[transform:scale] duration-300 ease-in-out origin-bottom border-t border-prim backdrop-blur-md bg-bg/50"
+            :class="menu_open ? 'scale-y-100 max-h-full': 'scale-y-0 max-h-0'">
+            <a href="#landing" @click="menu_open = false">start</a>
+            <a href="#projekt" @click="menu_open = false">projekt</a>
+            <a href="#tech" @click="menu_open = false">tech</a>
+            <a href="#kontakt" @click="menu_open = false">kontakt</a>
+        </div>
+        <!-- Menu button -->
+        <div class="min-w-[100vw] flex justify-end border-t border-prim backdrop-blur-lg bg-bg/50">
+            <button class="px-8 pt-6 pb-4" @click="menu_open = true" x-show="menu_open == false">
+                <svg width="32" height="32">
+                    <path d="M0 4 h32 M0 16 h32 M0 28 h32" class="stroke-2 stroke-prim" fill="none"
+                        stroke-linecap="round">
+                    </path>>
+                </svg>
+            </button>
+            <button class="px-8 pt-6 pb-4" @click="menu_open = !menu_open" x-show="menu_open == true">
+                <svg width="32" height="32">
+                    <path d="M4 4 L28 28 M4 28 L28 4" class="stroke-2 stroke-prim" fill="none" stroke-linecap="round">
+                    </path>>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</body>
+</html>
