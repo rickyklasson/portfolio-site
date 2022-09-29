@@ -636,6 +636,18 @@ body {
   top: 0px;
 }
 
+.bottom-20 {
+  bottom: 5rem;
+}
+
+.bottom-24 {
+  bottom: 6rem;
+}
+
+.bottom-2 {
+  bottom: 0.5rem;
+}
+
 .-z-10 {
   z-index: -10;
 }
