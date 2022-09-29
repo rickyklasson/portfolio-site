@@ -10,6 +10,15 @@ html, body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+#project-scroller {
+  -ms-overflow-style: none;
+  scrollbar-width: 0;
+}
+
+#project-scroller::-webkit-scrollbar {
+  display: none;
+}
+
 @layer components {
   body {
     @apply bg-bg text-bright;

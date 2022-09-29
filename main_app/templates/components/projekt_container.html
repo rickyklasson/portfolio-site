@@ -1,19 +1,22 @@
 {% load static %}
 
 <!-- Container for landing page -->
-<section id="projekt" class="relative snap-start min-w-screen min-h-screen overflow-y-hidden">
+<section id="projekt" class="relative snap-start min-w-screen min-h-screen overflow-y-hidden"
+    x-data="{proj_idx: 0, slider_offset: 0}">
+    <!-- Fixed title and slider -->
     <div class="absolute w-screen h-screen flex flex-col px-9">
         <!-- Fixed page title -->
         <h2 class="uppercase text-prim text-4xl font-light opacity-40 tracking-[0.35rem] mt-14">
             referenser</h2>
-        <!-- Project scrollbar -->
+        <!-- Project slider -->
         <div class="flex flex-col min-w-screen mb-24">
             <div class="relative my-2">
-                <div class="absolute top-0 border-t-2 border-prim w-[20%]"></div>
+                <div class="absolute top-0 border-t-2 border-prim w-[20%] transition-[left] ease-in-out duration-300"
+                    :style="{left: slider_offset + 'vw'}"></div>
                 <div class="absolute top-0 border-t-2 border-prim w-[100%] opacity-25"></div>
             </div>
             <div class="flex justify-between text-gray-300 text-sm font-light">
-                <p>01 / 05</p>
+                <p>0<span x-text="proj_idx + 1"></span> / 05</p>
                 <p>Scroll</p>
             </div>
         </div>
@@ -21,7 +24,7 @@
 
     <!-- Multi project container -->
     <div class="max-w-screen">
-        <div class="flex overflow-x-scroll">
+        <div id="project-scroller" class="flex overflow-x-scroll snap-proximity snap-x" @scroll.throttle.50ms="proj_idx = Math.floor($event.target.scrollLeft / window.innerWidth + 0.5); slider_offset = proj_idx * 20;console.log(slider_offset)">
             {% include 'components/projekt.html' with nr="01" bg_img="images/pr_hero_jjl.jpg" only %}
             {% include 'components/projekt.html' with nr="02" bg_img="images/pr_hero_ex.jpg" only %}
         </div>
