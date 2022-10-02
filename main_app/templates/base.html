@@ -20,15 +20,16 @@
     {% endblock styles %}
 </head>
 
-<body x-data="{menu_open: false}">
+<body x-data="{menu_open: false, menu_idx: 0}">
     <!-- Insert main code here -->
     <div class="snap-proximity snap-y overflow-scroll h-screen scroll-smooth">
-    {% block content %}
-    {% endblock content %}
+        {% block content %}
+        {% endblock content %}
     </div>
-    <nav class="fixed bottom-0 flex flex-col items-end">
+    <!-- Mobile navigation -->
+    <nav class="fixed bottom-0 flex flex-col items-end lg:hidden">
         <!-- Navigation menu -->
-        <div class="flex flex-col min-w-full py-4 items-end gap-4 text-[14px] text-right uppercase tracking-[0.2rem] pr-[2.8rem] transition-[transform:scale] duration-300 ease-in-out origin-bottom border-t border-prim backdrop-blur-md bg-bg/50"
+        <div class="flex flex-col min-w-full py-4 items-end gap-4 text-sm text-right uppercase tracking-[0.2rem] pr-[2.8rem] transition-[transform:scale] duration-300 ease-in-out origin-bottom border-t border-prim backdrop-blur-md bg-bg/50"
             :class="menu_open ? 'scale-y-100 max-h-full': 'scale-y-0 max-h-0'">
             <a href="/#landing" @click="menu_open = false">start</a>
             <a href="/#projekt" @click="menu_open = false">projekt</a>
@@ -52,5 +53,25 @@
             </button>
         </div>
     </nav>
+    <!-- Desktop navigation -->
+    <nav class="hidden lg:block fixed right-0 top-[50%] translate-y-[-50%]">
+        <div class="flex flex-col items-end gap-4 text-sm text-right uppercase tracking-[0.15rem] pr-[2.8rem]">
+            <svg width="2" height="50" class="stroke-2 stroke-bright" fill="none" stroke-linecap="round">
+                <path d="M1 0 L1 50"></path>
+            </svg>
+            <a href="/#landing" @click="menu_open = false"
+            :class="menu_idx == 0 ? 'text-bright': 'text-gray-500'">start</a>
+            <a href="/#projekt" @click="menu_open = false"
+            :class="menu_idx == 1 ? 'text-bright': 'text-gray-500'">projekt</a>
+            <a href="/#tjänster" @click="menu_open = false"
+            :class="menu_idx == 2 ? 'text-bright': 'text-gray-500'">tjänster</a>
+            <a href="/#kontakt" @click="menu_open = false"
+            :class="menu_idx == 3 ? 'text-bright': 'text-gray-500'">kontakt</a>
+            <svg width="2" height="50" class="stroke-2 stroke-bright" fill="none" stroke-linecap="round">
+                <path d="M1 0 L1 50"></path>
+            </svg>
+        </div>
+    </nav>
 </body>
+
 </html>
