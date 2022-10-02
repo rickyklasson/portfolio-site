@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-{% include 'components/landing.html' %}
-{% include 'components/projekt_container.html' %}
+{% include 'sections/landing.html' %}
+{% include 'sections/projekt.html' %}
+<hr class="border-prim opacity-40">
+{% include 'sections/tjänster.html' %}
+<hr class="border-prim opacity-40">
+{% include 'sections/kontakt.html' %}
 {% endblock content %}

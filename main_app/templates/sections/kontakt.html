@@ -1,0 +1,36 @@
+<section id="kontakt" class="w-screen min-h-screen">
+    <!-- Container for margin/padding -->
+    <div class="flex flex-col gap-2 mx-9">
+        <h2>kontakt</h2>
+        <p class="text-sm">Ta kontakt med oss via telefon eller via formuläret nedan.</p>
+        <p class="text-sm mt-2">Telefon: <span class="font-bold">0727-39 00 55</span></p>
+        
+        <!-- Contact form -->
+        <form method="post" class="flex flex-col gap-3 mt-4 mb-24">
+            {% csrf_token %}
+            <!-- Namn -->
+            <div class="flex flex-col gap-1">
+                <p class="form-label">namn</p>
+                <div class="form-input">{{ form.name }}</div>
+            </div>
+            <!-- E-post -->
+            <div class="flex flex-col gap-1">
+                <p class="form-label">e-post</p>
+                <div class="form-input">{{ form.from_email }}</div>
+            </div>
+            <!-- Ämne -->
+            <div class="flex flex-col gap-1">
+                <p class="form-label">ämne</p>
+                <div class="form-input">{{ form.subject }}</div>
+            </div>
+            <!-- Meddelande -->
+            <div class="flex flex-col gap-1">
+                <p class="form-label">meddelande</p>
+                <div class="form-input">{{ form.message }}</div>
+            </div>
+            <!-- Submit button -->
+            <button type="submit" class="uppercase tracking-wider text-bg font-medium bg-prim px-4 py-2 mt-2 mx-auto rounded-md">skicka</button>
+
+        </form>
+    </div>
+</section>

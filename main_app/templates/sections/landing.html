@@ -1,0 +1,54 @@
+{% load static %}
+
+<!-- Container for landing page -->
+<section id="landing" class="relative w-screen h-screen tracking-[0.12rem] overflow-hidden">
+    <!-- Background initials -->
+    <div class="absolute bottom-24 left-[120px] px-auto -z-10">
+        <p class="text-[188px] text-[#222222]/80 rotate-90">ARK</p>
+    </div>
+    <!-- Background image -->
+    <img src="{% static 'images/ricky_cropped_480.png' %}" alt="Developer profile image"
+         class="absolute bottom-[-30px] left-0 opacity-30 max-w-[300px] bg-cover -z-10">
+
+    <!-- Outer container for margin -->
+    <div class="relative p-8">
+        <!-- Small ARK text and upper right corner -->
+        <div class="absolute right-0 mr-8 flex flex-row justify-end gap-6">
+            <p class="mt-[-4px] uppercase text-[8px] text-prim/40 font-medium tracking-[0.2rem]">ark - webb och mjukvara
+            </p>
+            <!-- Upper right corner -->
+            <div class="w-[5rem] h-[5rem] border-t-2 border-r-2 border-prim"></div>
+        </div>
+
+        <!-- Container for text and buttons -->
+        <div class="relative flex flex-col my-12 justify-center gap-8">
+            <div class="mt-8">
+                <p class="uppercase text-prim opacity-75">vi utvecklar</p>
+                <h1 class="uppercase font-medium text-3xl">skräddarsydda<br>hemsidor av<br>hög kvalité</h1>
+            </div>
+
+            <div class="flex gap-4">
+                <!-- Vertical line -->
+                <svg width="4" height="90">
+                    <path d="m1 0 v90" class="stroke-2 stroke-prim" fill="none" stroke-linecap="round"></path>
+                </svg>
+                <!-- Container for topic texts -->
+                <div class="flex flex-col uppercase text-sm justify-around gap-1">
+                    <p>responsiv design</p>
+                    <p>databashantering</p>
+                    <p>skräddarsydd</p>
+                </div>
+
+            </div>
+            <!-- CTA buttons-->
+            <div class="flex flex-col max-w-[200px] gap-3 mt-8 ml-auto mr-0">
+                <a href="#kontakt"><button
+                        class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim ">kontakta
+                        mig</button></a>
+                <a href="#projekt"><button
+                        class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-prim bg-bg border-2 border-prim">projekt</button></a>
+            </div>
+        </div>
+    </div>
+
+</section>
