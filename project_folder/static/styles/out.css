@@ -825,6 +825,22 @@ h2 {
   margin-top: auto;
 }
 
+.mr-24 {
+  margin-right: 6rem;
+}
+
+.mr-48 {
+  margin-right: 12rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mr-10 {
+  margin-right: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -937,6 +953,38 @@ h2 {
   max-width: 75px;
 }
 
+.max-w-\[750px\] {
+  max-width: 750px;
+}
+
+.max-w-\[740px\] {
+  max-width: 740px;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.max-w-5xl {
+  max-width: 64rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
+}
+
 .origin-bottom {
   transform-origin: bottom;
 }
@@ -984,6 +1032,10 @@ h2 {
 
 .grid-flow-row {
   grid-auto-flow: row;
+}
+
+.grid-flow-col {
+  grid-auto-flow: column;
 }
 
 .grid-flow-row-dense {
@@ -1039,6 +1091,10 @@ h2 {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -1079,6 +1135,14 @@ h2 {
   gap: 1.5rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-20 {
+  gap: 5rem;
+}
+
 .place-self-center {
   place-self: center;
 }
@@ -1117,6 +1181,10 @@ h2 {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-t {
@@ -1191,6 +1259,10 @@ h2 {
   padding: 2rem;
 }
 
+.p-2 {
+  padding: 0.5rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -1224,6 +1296,16 @@ h2 {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .pr-\[2\.8rem\] {
@@ -1298,6 +1380,18 @@ h2 {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[80px\] {
+  font-size: 80px;
+}
+
+.text-\[4rem\] {
+  font-size: 4rem;
+}
+
+.text-\[3rem\] {
+  font-size: 3rem;
 }
 
 .font-medium {
@@ -1399,6 +1493,10 @@ h2 {
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 
+.text-prim\/80 {
+  color: rgb(179 254 213 / 0.8);
+}
+
 .opacity-40 {
   opacity: 0.4;
 }
@@ -1473,8 +1571,17 @@ input[type=email], textarea, textarea:focus {
 }
 
 @media (min-width: 768px) {
+  .md\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .md\:mr-12 {
     margin-right: 3rem;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:px-24 {
@@ -1520,6 +1627,22 @@ input[type=email], textarea, textarea:focus {
     margin-top: 0.5rem;
   }
 
+  .lg\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .lg\:mb-auto {
+    margin-bottom: auto;
+  }
+
+  .lg\:mr-48 {
+    margin-right: 12rem;
+  }
+
+  .lg\:mt-12 {
+    margin-top: 3rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -1542,6 +1665,22 @@ input[type=email], textarea, textarea:focus {
 
   .lg\:min-w-\[600px\] {
     min-width: 600px;
+  }
+
+  .lg\:max-w-\[600px\] {
+    max-width: 600px;
+  }
+
+  .lg\:max-w-\[800px\] {
+    max-width: 800px;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
+  .lg\:overflow-x-hidden {
+    overflow-x: hidden;
   }
 
   .lg\:border-t-4 {
@@ -1622,5 +1761,21 @@ input[type=email], textarea, textarea:focus {
 
   .lg\:text-\[\#222222\]\/25 {
     color: rgb(34 34 34 / 0.25);
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:min-w-\[500px\] {
+    min-width: 500px;
+  }
+
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:min-w-\[500px\] {
+    min-width: 500px;
   }
 }
