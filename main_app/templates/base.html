@@ -55,19 +55,15 @@
     </nav>
     <!-- Desktop navigation -->
     <nav class="hidden lg:block fixed right-0 top-[50%] translate-y-[-50%]">
-        <div class="flex flex-col items-end gap-4 text-sm text-right uppercase tracking-[0.15rem] pr-[2.8rem]">
-            <svg width="2" height="50" class="stroke-2 stroke-bright" fill="none" stroke-linecap="round">
+        <div class="flex flex-col items-end text-sm text-right uppercase tracking-[0.15rem] pr-[2.8rem] text-gray-200">
+            <svg width="2" height="50" class="stroke stroke-bright mb-4" fill="none" stroke-linecap="round">
                 <path d="M1 0 L1 50"></path>
             </svg>
-            <a href="/#landing" @click="menu_open = false"
-            :class="menu_idx == 0 ? 'text-bright': 'text-gray-500'">start</a>
-            <a href="/#projekt" @click="menu_open = false"
-            :class="menu_idx == 1 ? 'text-bright': 'text-gray-500'">projekt</a>
-            <a href="/#tjänster" @click="menu_open = false"
-            :class="menu_idx == 2 ? 'text-bright': 'text-gray-500'">tjänster</a>
-            <a href="/#kontakt" @click="menu_open = false"
-            :class="menu_idx == 3 ? 'text-bright': 'text-gray-500'">kontakt</a>
-            <svg width="2" height="50" class="stroke-2 stroke-bright" fill="none" stroke-linecap="round">
+            <a href="/#landing" @click="menu_open = false" class="py-4 hover:tracking-[0.3rem] hover:text-prim transition-all ease-in-out duration-100">start</a>
+            <a href="/#projekt" @click="menu_open = false" class="py-4 hover:tracking-[0.3rem] hover:text-prim transition-all ease-in-out duration-100">projekt</a>
+            <a href="/#tjänster" @click="menu_open = false" class="py-4 hover:tracking-[0.3rem] hover:text-prim hover:scale-110 transition-all ease-in-out duration-100">tjänster</a>
+            <a href="/#kontakt" @click="menu_open = false" class="py-4 hover:tracking-[0.3rem] hover:text-prim hover:scale-110 transition-all ease-in-out duration-100">kontakt</a>
+            <svg width="2" height="50" class="stroke stroke-bright mt-4" fill="none" stroke-linecap="round">
                 <path d="M1 0 L1 50"></path>
             </svg>
         </div>
