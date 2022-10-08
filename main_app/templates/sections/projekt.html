@@ -17,7 +17,11 @@
                     </div>
                     <div class="flex justify-between text-gray-300 text-sm font-light">
                         <p>0<span x-text="proj_idx"></span> / 05</p>
-                        <p class="lg:hidden">Scroll</p>
+                        <div class="flex gap-1 lg:hidden">
+                            <p>Scroll</p>
+                            <i class="bi bi-chevron-right animate-bounce-left"></i>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -35,11 +39,13 @@
         <!-- Navigation arrows for desktop -->
         <div class="hidden lg:flex mb-20 mr-10 gap-12">
             <a x-bind:href="'#slide_0' + (proj_idx > 1 ? proj_idx-1: proj_idx)"
-                class="uppercase text-[3rem] text-prim/80  rounded-full pl-4 pr-6 hover:bg-prim/20" @click="proj_idx = 1; slider_offset = (proj_idx - 1) * 20">
+                class="uppercase text-[3rem] text-prim/80  rounded-full pl-4 pr-6 hover:bg-prim/20"
+                @click="proj_idx = 1; slider_offset = (proj_idx - 1) * 20">
                 <i class="bi bi-chevron-left"></i>
             </a>
             <a x-bind:href="'#slide_0' + (proj_idx < 2  ? proj_idx + 1: proj_idx)"
-                class="uppercase text-[3rem] text-prim/80 rounded-full pl-6 pr-4 hover:bg-prim/20" @click="proj_idx = 2; slider_offset = (proj_idx - 1) * 20">
+                class="uppercase text-[3rem] text-prim/80 rounded-full pl-6 pr-4 hover:bg-prim/20"
+                @click="proj_idx = 2; slider_offset = (proj_idx - 1) * 20">
                 <i class="bi bi-chevron-right"></i>
             </a>
         </div>

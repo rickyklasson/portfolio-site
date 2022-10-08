@@ -9,6 +9,15 @@ module.exports = {
         bright: '#f0f0f0',
         bright_grey: '#d0d0d0',
       },
+      keyframes: {
+        bounce_left: {
+          '0%, 100%': { transform: 'translateX(0px)' },
+          '50%': { transform: 'translateX(10px)' },
+        },
+      },        
+      animation: {
+        'bounce-left': 'bounce_left 2s linear infinite',
+      },
     },
   },
   plugins: [],
