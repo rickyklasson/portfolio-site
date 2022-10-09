@@ -1,7 +1,7 @@
 {% load static %}
 
 <!-- Container for landing page -->
-<section id="projekt" class="snap-start min-h-screen overflow-y-hidden" x-data="{proj_idx: 1, slider_offset: 0}">
+<section id="projekt" class="min-h-screen overflow-y-hidden" x-data="{proj_idx: 1, slider_offset: 0}">
     <div class="flex justify-center items-end mx-auto gap-20">
         <div class="relative lg:max-w-[800px] min-h-screen">
             <!-- Fixed title and slider -->
@@ -17,7 +17,7 @@
                     </div>
                     <div class="flex justify-between text-gray-300 text-sm font-light">
                         <p>0<span x-text="proj_idx"></span> / 05</p>
-                        <div class="flex gap-1 lg:hidden">
+                        <div class="flex gap-3 lg:hidden">
                             <p>Scroll</p>
                             <i class="bi bi-chevron-right animate-bounce-left"></i>
                         </div>

@@ -12,7 +12,7 @@ module.exports = {
       keyframes: {
         bounce_left: {
           '0%, 100%': { transform: 'translateX(0px)' },
-          '50%': { transform: 'translateX(10px)' },
+          '50%': { transform: 'translateX(-10px)' },
         },
       },        
       animation: {

@@ -20,23 +20,44 @@
     {% endblock styles %}
 </head>
 
-<body x-data="{menu_open: false, menu_idx: 0}">
+<body x-data="{menu_open: false}">
     <!-- Insert main code here -->
-    <div class="snap-proximity snap-y overflow-scroll h-screen scroll-smooth">
+    <div class="overflow-scroll h-screen scroll-smooth" @click="menu_open = false" @scroll="menu_open = false">
         {% block content %}
         {% endblock content %}
     </div>
     <!-- Mobile navigation -->
-    <nav class="fixed bottom-0 flex flex-col items-end lg:hidden">
+    <nav class="lg:hidden">
         <!-- Navigation menu -->
-        <div class="flex flex-col min-w-full py-4 items-end text-sm text-right uppercase tracking-[0.2rem] pr-[2.8rem] transition-[transform:scale] duration-300 ease-in-out origin-bottom border-t border-prim backdrop-blur-md bg-bg/50"
-            :class="menu_open ? 'scale-y-100 max-h-full': 'scale-y-0 max-h-0'">
-            <a href="/#landing" @click="menu_open = false" class="py-4">start</a>
-            <a href="/#projekt" @click="menu_open = false" class="py-4">projekt</a>
-            <a href="/#tjänster" @click="menu_open = false" class="py-4">tjänster</a>
-            <a href="/#kontakt" @click="menu_open = false" class="py-4">kontakt</a>
+        <div class="fixed top-0 right-0 flex flex-col min-h-screen justify-end items-end pb-48 text-sm text-right uppercase tracking-[0.2rem] transition-[transform:scale] duration-300 ease-in-out origin-right border-l border-prim backdrop-blur-md bg-bg/50" :class="menu_open ? 'scale-x-100 max-w-full': 'scale-x-0 max-w-0'">
+            <a href="/#landing" @click="menu_open = false" class="py-4 px-10 mt-2 active:text-prim">start</a>
+            <a href="/#projekt" @click="menu_open = false" class="py-4 px-10 active:text-prim">projekt</a>
+            <a href="/#tjänster" @click="menu_open = false" class="py-4 px-10 active:text-prim">tjänster</a>
+            <a href="/#kontakt" @click="menu_open = false" class="py-4  px-10 mb-4 active:text-prim">kontakt</a>
         </div>
         <!-- Menu button -->
+        <button class="fixed flex justify-end right-5 bottom-5 p-5 border rounded-full border-prim backdrop-blur-lg bg-bg/50 shadow-lg" @click="menu_open = true" x-show="menu_open == false">
+            <svg width="24" height="24">
+                <path d="M0 2 h24 M0 12 h24 M0 22 h24" class="stroke-2 stroke-prim" fill="none" stroke-linecap="round">
+                </path>>
+            </svg>
+        </button>
+        <button class="fixed flex justify-end right-5 bottom-5 p-5 border rounded-full border-prim backdrop-blur-lg bg-bg/50 shadow-lg" @click="menu_open = !menu_open" x-show="menu_open == true">
+            <svg width="24" height="24">
+                <path d="M2 2 L22 22 M2 22 L22 2" class="stroke-2 stroke-prim" fill="none" stroke-linecap="round">
+                </path>>
+            </svg>
+        </button>
+
+        <!-- Bottom bar navigation -->
+        <!--
+        <div class="flex flex-col min-w-full items-end text-sm text-right uppercase tracking-[0.2rem] pr-[2.8rem] transition-[transform:scale] duration-300 ease-in-out origin-bottom border-t border-prim backdrop-blur-md bg-bg/50"
+            :class="menu_open ? 'scale-y-100 max-h-full': 'scale-y-0 max-h-0'">
+            <a href="/#landing" @click="menu_open = false" class="py-4 mt-2">start</a>
+            <a href="/#projekt" @click="menu_open = false" class="py-4">projekt</a>
+            <a href="/#tjänster" @click="menu_open = false" class="py-4">tjänster</a>
+            <a href="/#kontakt" @click="menu_open = false" class="py-4 mb-4">kontakt</a>
+        </div>
         <div class="min-w-[100vw] flex justify-end border-t border-prim backdrop-blur-lg bg-bg/50">
             <button class="px-8 pt-6 pb-4" @click="menu_open = true" x-show="menu_open == false">
                 <svg width="32" height="32">
@@ -51,7 +72,7 @@
                     </path>>
                 </svg>
             </button>
-        </div>
+        </div>-->
     </nav>
     <!-- Desktop navigation -->
     <nav class="hidden lg:block fixed right-0 top-[50%] translate-y-[-50%]">
