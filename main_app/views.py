@@ -2,8 +2,12 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
+from .models import Project
 
 def home(request):
+    # Handle list of reference projects.
+    projects = Project.objects.all()
+
     # Handle contact form.
     if request.method == 'GET':
         form = ContactForm
@@ -22,7 +26,7 @@ def home(request):
             
             return redirect('contact_success')
     
-    return render(request, 'home.html', context={'form': form})
+    return render(request, 'home.html', context={'form': form, 'projects': projects})
 
 def contact_sucess_view(request):
     return render(request, 'contact_success.html', context={})

@@ -3,7 +3,7 @@
 <!-- Container for landing page -->
 <section id="projekt" class="min-h-screen overflow-y-hidden" x-data="{proj_idx: 1, slider_offset: 0}">
     <div class="flex justify-center items-end mx-auto gap-20">
-        <div class="relative lg:max-w-[800px] min-h-screen">
+        <div class="relative min-w-[300px] lg:max-w-[800px] min-h-screen">
             <!-- Fixed title and slider -->
             <div class="absolute min-w-full min-h-screen flex flex-col px-9">
                 <!-- Fixed page title -->
@@ -31,19 +31,22 @@
                 <div id="project-scroller"
                     class="flex overflow-x-scroll lg:overflow-x-hidden overflow-y-hidden snap-proximity snap-x scroll-smooth"
                     @scroll.throttle.50ms="proj_idx = Math.floor($event.target.scrollLeft / window.innerWidth + 1.5); slider_offset = (proj_idx - 1) * 20;">
-                    {% include 'components/projekt.html' with nr="01" bg_img="images/pr_hero_jjl.jpg" only %}
-                    {% include 'components/projekt.html' with nr="02" bg_img="images/pr_hero_ex.jpg" only %}
+                    {% for project in projects %}
+                        {% include 'components/projekt.html' with title=project.title nr=forloop.counter desc=project.description bg_img_url=project.img.url only %}
+                    {% endfor %}
                 </div>
             </div>
+
+            
         </div>
         <!-- Navigation arrows for desktop -->
         <div class="hidden lg:flex mb-20 mr-10 gap-12">
-            <a x-bind:href="'#slide_0' + (proj_idx > 1 ? proj_idx-1: proj_idx)"
+            <a x-bind:href="'#slide_' + (proj_idx > 1 ? proj_idx-1: proj_idx)"
                 class="uppercase text-[3rem] text-prim/80  rounded-full pl-4 pr-6 hover:bg-prim/20"
                 @click="proj_idx = 1; slider_offset = (proj_idx - 1) * 20">
                 <i class="bi bi-chevron-left"></i>
             </a>
-            <a x-bind:href="'#slide_0' + (proj_idx < 2  ? proj_idx + 1: proj_idx)"
+            <a x-bind:href="'#slide_' + (proj_idx < 2  ? proj_idx + 1: proj_idx)"
                 class="uppercase text-[3rem] text-prim/80 rounded-full pl-6 pr-4 hover:bg-prim/20"
                 @click="proj_idx = 2; slider_offset = (proj_idx - 1) * 20">
                 <i class="bi bi-chevron-right"></i>
