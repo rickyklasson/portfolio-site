@@ -6,7 +6,7 @@ from .models import Project
 
 def home(request):
     # Handle list of reference projects.
-    projects = Project.objects.all()
+    projects = Project.objects.all()[:5]
 
     # Handle contact form.
     if request.method == 'GET':
