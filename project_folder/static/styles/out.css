@@ -1450,10 +1450,6 @@ h2 {
   color: rgb(179 254 213 / 0.8);
 }
 
-.opacity-40 {
-  opacity: 0.4;
-}
-
 .opacity-30 {
   opacity: 0.3;
 }
@@ -1462,12 +1458,12 @@ h2 {
   opacity: 0.75;
 }
 
-.opacity-25 {
-  opacity: 0.25;
+.opacity-40 {
+  opacity: 0.4;
 }
 
-.opacity-50 {
-  opacity: 0.5;
+.opacity-25 {
+  opacity: 0.25;
 }
 
 .shadow-lg {
@@ -1565,6 +1561,10 @@ select:-webkit-autofill:focus {
 
 .hover\:bg-prim\/20:hover {
   background-color: rgb(179 254 213 / 0.2);
+}
+
+.hover\:bg-white\/5:hover {
+  background-color: rgb(255 255 255 / 0.05);
 }
 
 .hover\:tracking-\[0\.3rem\]:hover {

@@ -32,7 +32,7 @@
                     class="flex overflow-x-scroll lg:overflow-x-hidden overflow-y-hidden snap-proximity snap-x scroll-smooth"
                     @scroll.throttle.50ms="proj_idx = Math.floor($event.target.scrollLeft / window.innerWidth + 1.5); window.innerWidth > 1024 ? slider_offset = (proj_idx_lg - 1) * 100 / num_projs : slider_offset = (proj_idx - 1) * 100 / num_projs ; console.log(proj_idx, proj_idx_lg)">
                     {% for project in projects %}
-                        {% include 'components/projekt.html' with title=project.title nr=forloop.counter desc=project.description bg_img_url=project.img.url only %}
+                        {% include 'components/projekt.html' with title=project.title nr=forloop.counter desc=project.description bg_img_url=project.img.url web_url=project.web_url only %}
                     {% endfor %}
                 </div>
             </div>
