@@ -22,7 +22,7 @@
 
 <body x-data="{menu_open: false}">
     <!-- Insert main code here -->
-    <div class="overflow-scroll h-screen scroll-smooth" @click="menu_open = false" @scroll="menu_open = false">
+    <div class="overflow-y-scroll overflow-x-hidden h-screen scroll-smooth" @click="menu_open = false" @scroll="menu_open = false">
         {% block content %}
         {% endblock content %}
     </div>

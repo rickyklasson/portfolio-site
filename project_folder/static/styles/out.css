@@ -1081,12 +1081,20 @@ h2 {
   overflow: scroll;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 .overflow-y-hidden {
   overflow-y: hidden;
 }
 
 .overflow-x-scroll {
   overflow-x: scroll;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .scroll-smooth {
@@ -1559,12 +1567,12 @@ select:-webkit-autofill:focus {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:bg-prim\/20:hover {
-  background-color: rgb(179 254 213 / 0.2);
-}
-
 .hover\:bg-white\/5:hover {
   background-color: rgb(255 255 255 / 0.05);
+}
+
+.hover\:bg-prim\/20:hover {
+  background-color: rgb(179 254 213 / 0.2);
 }
 
 .hover\:tracking-\[0\.3rem\]:hover {
