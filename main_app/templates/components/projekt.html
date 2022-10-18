@@ -1,8 +1,12 @@
 {% load static %}
 <!-- Single project container -->
 <div id="slide_{{nr}}" class="snap-start relative min-w-full min-h-screen">
+    {% if bg_img_url %}
     <img src="{{ bg_img_url }}" alt="{{project.title}}"
-        class="absolute opacity-30 object-cover min-h-screen min-w-screen -z-50">
+        class="absolute brightness-[50%] object-cover min-h-screen w-screen -z-50">
+    {% else %}
+        <div class="absolute min-h-full min-w-full bg-prim/10 -z-50"></div>
+    {% endif %}
 
     <!-- Project text container -->
     <div class="flex flex-col gap-8 min-h-screen justify-end px-9 pb-36 text-prim">

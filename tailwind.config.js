@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: '#1a1a1a',
+        bg: '#121212',
         prim: '#b3fed5',
         bright: '#f0f0f0',
         bright_grey: '#d0d0d0',
@@ -14,7 +14,11 @@ module.exports = {
           '0%, 100%': { transform: 'translateX(0px)' },
           '50%': { transform: 'translateX(-10px)' },
         },
-      },        
+      },
+      backgroundImage: {
+        'desktop': "url('/static/images/desktop_bg.jpg')",
+        'mobile': "url('/static/images/mobile_bg.jpg')",
+      },
       animation: {
         'bounce-left': 'bounce_left 2s linear infinite',
       },

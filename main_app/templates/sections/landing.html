@@ -1,137 +1,271 @@
 {% load static %}
 
 <!-- Container for landing page -->
-<section id="landing" class="relative w-screen min-h-screen tracking-[0.12rem] overflow-hidden">
-    <!-- Background initials -->
-    <div class="absolute lg:fixed bottom-24 left-[120px] -z-10 lg:top-36 lg:right-0 lg:left-auto lg:bottom-auto">
-        <p class="text-[188px] text-[#222222]/80 -rotate-90 lg:text-[240px] lg:text-[#222222]/50">ARK</p>
-    </div>
-    <!-- Background image -->
-    <img src="{% static 'images/ricky_cropped_480.png' %}" alt="Developer profile image" class="absolute bottom-[-30px] left-0 opacity-40 max-w-[300px] bg-cover -z-10 lg:min-w-[500px]">
+<section
+  id="landing"
+  class="relative w-screen min-h-screen tracking-[0.12rem] overflow-hidden"
+  @mousemove="mouse_x = $event.pageX / window.innerWidth - 0.5; mouse_y = $event.pageY / window.innerHeight - 0.5; "
+  @mouseenter="mouse_x = $event.pageX / window.innerWidth - 0.5; mouse_y = $event.pageY / window.innerHeight - 0.5; "
+  x-data="{mouse_x: 0, mouse_y: 0}"
+>
+  <!-- Background initials -->
+  <div
+    class="absolute lg:fixed bottom-24 left-[120px] -z-10 lg:top-36 lg:right-0 lg:left-auto lg:bottom-auto"
+  ></div>
+  <!-- Background image -->
+  <div
+    class="bg-mobile md:bg-desktop bg-cover absolute min-h-screen w-screen opacity-5 -z-50 scale-[130%] transition-[top,left] ease-linear duration-75"
+    :style="{left: mouse_x * -30 + 'px', top: mouse_y * -30 + 'px'}"
+  ></div>
+  <!-- Profile image -->
+  <img
+    src="{% static 'images/ricky_cropped_480.png' %}"
+    alt="Developer profile image"
+    class="absolute brightness-[40%] bottom-[-30px] left-0 max-w-[300px] bg-cover -z-10 lg:min-w-[500px]"
+  />
 
-    <!-- Outer container for margin -->
-    <div class="relative p-8 md:px-24 md:pb-16">
-        <!-- Small ARK text and upper right corner -->
-        <div class="absolute right-0 mr-8 md:mr-12 flex flex-row justify-end gap-6">
-            <p class="mt-[-6px] uppercase text-[10px] text-prim/40 font-medium tracking-[0.2rem] lg:tracking-[0.3rem]">
-                ark - webb och mjukvara
+  <!-- Outer container for margin -->
+  <div class="relative p-8 md:px-24 md:pb-16">
+    <!-- Small ARK text and upper right corner -->
+    <div class="absolute right-0 mr-8 md:mr-12 flex flex-row justify-end gap-6">
+      <p
+        class="mt-[-6px] uppercase text-[10px] text-prim/40 font-medium tracking-[0.2rem] lg:tracking-[0.3rem]"
+      >
+        ark - webb och mjukvara
+      </p>
+      <!-- Upper right corner -->
+      <div class="w-[5rem] h-[5rem] border-t-2 border-r-2 border-prim"></div>
+    </div>
+
+    <!-- Container for text and buttons on small screens -->
+    <div class="relative flex flex-col my-12 justify-center gap-8 lg:hidden">
+      <div class="mt-8">
+        <p class="uppercase text-prim opacity-75 font-medium">jag utvecklar</p>
+        <h1 class="uppercase font-bold text-3xl">
+          skräddarsydda<br />hemsidor av<br />hög kvalité
+        </h1>
+      </div>
+
+      <div class="flex gap-4">
+        <!-- Vertical line -->
+        <div class="min-h-full border-l-2 border-prim"></div>
+        <!-- Container for topic texts -->
+        <div
+          class="flex flex-col justify-between min-w-[280px] 2xl:min-w-[500px] gap-3"
+          x-data="{open_idx: false}"
+        >
+          <!-- Mina tjänster -->
+          <div>
+            <div class="flex items-center gap-2">
+              <button
+                class="text-left text-sm uppercase tracking-[0.10rem] font-bold"
+                @click="open_idx == 1 ? open_idx = false : open_idx = 1"
+              >
+                Vad erbjuder jag?
+                <span x-show="open_idx == 1" class="text-xs">▲</span>
+                <span x-show="open_idx != 1" class="text-xs">▼</span>
+              </button>
+            </div>
+            <p x-show="open_idx == 1" class="text-sm ml-2 py-2 font-light">
+              Med mig som utvecklare får du en personlig process där vi
+              utvecklar en hemsida och användarupplevelse som är anpassad helt
+              efter dina önskemål. För att ge dig största möjliga flexibilitet
+              av utseende och funktionalitet skriver jag din hemsida helt från
+              grunden med hjälp av moderna, robusta verktyg.
             </p>
-            <!-- Upper right corner -->
-            <div class="w-[5rem] h-[5rem] border-t-2 border-r-2 border-prim"></div>
+          </div>
+          <!-- Utvecklingsprocessen -->
+          <div>
+            <div class="flex items-center gap-2">
+              <button
+                class="text-left text-sm uppercase tracking-[0.10rem] font-bold"
+                @click="open_idx == 2 ? open_idx = false : open_idx = 2"
+              >
+                Utvecklingsprocessen
+                <span x-show="open_idx == 2" class="text-xs">▲</span>
+                <span x-show="open_idx != 2" class="text-xs">▼</span>
+              </button>
+            </div>
+            <p x-show="open_idx == 2" class="text-sm ml-2 py-2">
+              Utvecklingen av din hemsida börjar med en diskussion kring dina
+              idéer, önskemål och de krav du ställer på hemsidans
+              funktionalitet. Sedan sker ett iterativt arbete där jag tar fram
+              förslag på layout och design så att samtliga av dina krav möts.
+              Till slut bygger jag en prototyp och driftsätter hemsidan. Om du
+              så önskar bistår jag dig med enkla, intutiva verktyg så att du
+              själv löpande kan uppdatera innehållet av din hemsida.
+            </p>
+          </div>
+          <!-- Mer om mig -->
+          <div>
+            <div class="flex items-center gap-2">
+              <button
+                class="text-left text-sm uppercase tracking-[0.10rem] font-bold"
+                @click="open_idx == 3 ? open_idx = false : open_idx = 3"
+              >
+                Vem är jag?
+                <span x-show="open_idx == 3" class="text-xs">▲</span>
+                <span x-show="open_idx != 3" class="text-xs">▼</span>
+              </button>
+            </div>
+            <p x-show="open_idx == 3" class="text-sm text-gray-300 ml-2 py-2">
+              Mitt namn är Ricky. Jag är civilingenjör i grunden och arbetar
+              till vardags med mjukvaruutveckling. Mitt intresse för
+              webbutveckling började för ett tiotal år sedan under mina
+              gymnasiestudier och har sedan dess vuxit sig till en mindre
+              verksamhet. Mitt mål är att bistå mindre företag med skräddarsydda
+              hemsidor för att stärka deras närvaro på webben.
+            </p>
+          </div>
         </div>
-
-        <!-- Container for text and buttons on small screens -->
-        <div class="relative flex flex-col my-12 justify-center gap-8 lg:hidden">
-            <div class="mt-8">
-                <p class="uppercase text-prim opacity-75 font-medium">jag utvecklar</p>
-                <h1 class="uppercase font-bold text-3xl">skräddarsydda<br>hemsidor av<br>hög kvalité</h1>
-            </div>
-
-            <div class="flex gap-4">
-                <!-- Vertical line -->
-                <div class="min-h-full border-l-2 border-prim"></div>
-                <!-- Container for topic texts -->
-                <div class="flex flex-col justify-between min-w-[280px] 2xl:min-w-[500px] gap-3" x-data="{open_idx: false}">
-                    <!-- Mina tjänster -->
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <button class="text-left text-sm uppercase tracking-[0.10rem] font-bold" @click="open_idx == 1 ? open_idx = false : open_idx = 1">Vad erbjuder jag?
-                                <span x-show="open_idx == 1" class="text-xs">▲</span>
-                                <span x-show="open_idx != 1" class="text-xs">▼</span>
-                            </button>
-                        </div>
-                        <p x-show="open_idx == 1" class="text-sm ml-2 py-2 font-light">Med mig som utvecklare får du en skräddarsydd process där vi, genom kontinuerlig dialog, utvecklar en hemsida och 
-                            användarupplevelse som är anpassad helt efter era önskemål. Oavsett om ni önskar nyutveckling eller uppdatering av en befintlig hemsida så tar jag er hela vägen från idé till färdig produkt.</p>
-                    </div>
-                    <!-- Utvecklingsprocessen -->
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <button class="text-left text-sm uppercase tracking-[0.10rem] font-bold" @click="open_idx == 2 ? open_idx = false : open_idx = 2">Utvecklingsprocessen
-                                <span x-show="open_idx == 2" class="text-xs">▲</span>
-                                <span x-show="open_idx != 2" class="text-xs">▼</span>
-                            </button>
-                        </div>
-                        <p x-show="open_idx == 2" class="text-sm ml-2 py-2">Utvecklingen av er hemsida sker i flera delsteg. Först går vi gemensamt igenom era initiala idéer, önskemål och de krav ni ställer på hemsidans funktionalitet.
-                            Jag tar sedan fram förslag på layout och design. Efter att dessa godkänts bygger jag en prototyp av er hemsida varefter den lanseras. Givetvis är ni involverade i samtliga steg till den grad ni önskar.</p>
-                    </div>
-                    <!-- Mer om mig -->
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <button class="text-left text-sm uppercase tracking-[0.10rem] font-bold" @click="open_idx == 3 ? open_idx = false : open_idx = 3">mer om mig
-                                <span x-show="open_idx == 3" class="text-xs">▲</span>
-                                <span x-show="open_idx != 3" class="text-xs">▼</span>
-                            </button>
-
-                        </div>
-                        <p x-show="open_idx == 3" class="text-sm text-gray-300 ml-2 py-2">Mitt namn är Ricky Klasson. Jag är civilingenjör i grunden och arbetar till vardags med mjukvaruutveckling. Mitt intresse för
-                            hemsidor började för ett tiotal år sedan under mina gymnasiestudier. De senaste åren har intresset vuxit till den grad att jag börjat arbeta för att göra det till mer än en fritidssyssla.</p>
-                    </div>
-                </div>
-
-            </div>
-            <!-- CTA buttons-->
-            <div class="flex flex-col max-w-[200px] gap-3 mt-8 ml-auto mr-0">
-                <a href="#kontakt"><button class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim ">kontakta
-                        mig</button></a>
-                <a href="#projekt"><button class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-prim bg-bg border-2 border-prim">projekt</button></a>
-            </div>
-        </div>
-        <!-- Container for content on desktop -->
-        <div class="flex justify-center pl-32" x-data="{headline_idx: 0}">
-            <div class="hidden lg:grid auto-cols-min auto-rows-min">
-                <!-- Header text -->
-                <div class="mt-16 col-start-1 col-span-2">
-                    <p class="uppercase text-prim opacity-75 lg:text-3xl">jag utvecklar</p>
-                    <h1 class="uppercase font-medium text-3xl lg:text-5xl lg:tracking-wider lg:leading-[54px] lg:mt-2">
-                        skräddarsydda<br>hemsidor av<br>hög kvalité</h1>
-                </div>
-
-                <div class="flex gap-4 mt-6">
-                    <!-- Vertical line -->
-                    <div class="min-h-full border-l-2 border-prim"></div>
-                    <!-- Container for topic texts -->
-                    <div class="flex flex-col justify-between min-w-[300px] 2xl:min-w-[500px]">
-                        <button class="text-left text-sm uppercase tracking-[0.20rem] py-[6px]" @click="headline_idx = 0" :class="headline_idx == 0 ? 'text-white' : 'text-gray-400'">Vad erbjuder jag?</button>
-                        <button class="text-left text-sm uppercase tracking-[0.20rem] py-[6px]" @click="headline_idx = 1" :class="headline_idx == 1 ? 'text-white' : 'text-gray-400'">Utvecklingsprocessen</button>
-                        <button class="text-left text-sm uppercase tracking-[0.20rem] py-[6px]" @click="headline_idx = 2" :class="headline_idx == 2 ? 'text-white' : 'text-gray-400'">Om mig</button>
-                    </div>
-                </div>
-
-                <!-- Bottom left corner -->
-                <div class="mb-0 mt-auto col-start-1 row-start-3 max-w-[75px] min-h-[75px] border-l border-b border-prim">
-                </div>
-
-                <!-- Topic description -->
-                <div class="flex flex-col gap-4 max-w-[450px] col-start-2 row-start-3 mt-8" x-show="headline_idx == 0">
-                    <p class="uppercase text-xl tracking-[0.2rem] font-medium relative"><span class="absolute left-[-1.5rem] top-[-1rem] text-6xl text-prim/20">V</span> Vad erbjuder jag?
-                    </p>
-                    <p class="text-gray-300 leading-5 min-w-[400px] min-h-[180px]">Med mig som utvecklare får du en skräddarsydd process där vi, genom kontinuerlig dialog, utvecklar en hemsida och 
-                        användarupplevelse som är anpassad helt efter era önskemål. Oavsett om ni önskar nyutveckling eller uppdatering av en befintlig hemsida så tar jag er hela vägen från idé till färdig produkt.</p>
-                </div>
-                <div class="flex flex-col gap-4 max-w-[450px] col-start-2 row-start-3 mt-8" x-show="headline_idx == 1">
-                    <p class="uppercase text-xl tracking-[0.2rem] font-medium relative"><span class="absolute left-[-1.5rem] top-[-1rem] text-6xl text-prim/20">U</span>
-                        Utvecklingsprocessen
-                    </p>
-                    <p class="text-gray-300 leading-5 min-w-[400px] min-h-[180px]">Utvecklingen av er hemsida sker i flera delsteg. Först går vi gemensamt igenom era initiala idéer, önskemål och de krav ni ställer på hemsidans funktionalitet.
-                        Jag tar sedan fram förslag på layout och design. Efter att dessa godkänts bygger jag en prototyp av er hemsida varefter den lanseras. Givetvis är ni involverade i samtliga steg till den grad ni önskar.
-                    </p>
-                </div>
-                <div class="flex flex-col gap-4 max-w-[450px] col-start-2 row-start-3 mt-8" x-show="headline_idx == 2">
-                    <p class="uppercase text-xl tracking-[0.2rem] font-medium relative"><span class="absolute left-[-1.5rem] top-[-1rem] text-6xl text-prim/20">O</span> Om mig
-                    </p>
-                    <p class="text-gray-300 leading-5 min-w-[400px] min-h-[180px]">Mitt namn är Ricky Klasson. Jag är civilingenjör i grunden och arbetar till vardags med mjukvaruutveckling. Mitt intresse för
-                        hemsidor började för ett tiotal år sedan under mina gymnasiestudier. De senaste åren har intresset vuxit till den grad att jag börjat arbeta för att göra det till mer än en fritidssyssla.
-                    </p>
-                </div>
-
-                <!-- CTA buttons-->
-                <div class="flex gap-3 mt-8 col-start-2 row-start-4">
-                    <a href="#kontakt"><button class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim ">kontakta
-                            mig</button></a>
-                    <a href="#projekt"><button class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-prim bg-bg border-2 border-prim">projekt</button></a>
-                </div>
-            </div>
-        </div>
+      </div>
+      <!-- CTA buttons-->
+      <div class="flex flex-col max-w-[200px] gap-3 mt-8 ml-auto mr-0">
+        <a href="#kontakt"
+          ><button
+            class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim"
+          >
+            kontakta mig
+          </button></a
+        >
+        <a href="#projekt"
+          ><button
+            class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-prim bg-bg border-2 border-prim"
+          >
+            projekt
+          </button></a
+        >
+      </div>
     </div>
+    <!-- Container for content on desktop -->
+    <div class="flex justify-center pl-32" x-data="{headline_idx: 0}">
+      <div class="hidden lg:grid auto-cols-min auto-rows-min">
+        <!-- Header text -->
+        <div class="mt-16 col-start-1 col-span-2">
+          <p class="uppercase text-prim opacity-75 lg:text-3xl">
+            jag utvecklar
+          </p>
+          <h1
+            class="uppercase font-medium text-3xl lg:text-5xl lg:tracking-wider lg:leading-[54px] lg:mt-2"
+          >
+            skräddarsydda<br />hemsidor av<br />hög kvalité
+          </h1>
+        </div>
 
+        <div class="flex gap-4 mt-6">
+          <!-- Vertical line -->
+          <div class="min-h-full border-l-2 border-prim"></div>
+          <!-- Container for topic texts -->
+          <div
+            class="flex flex-col justify-between min-w-[300px] 2xl:min-w-[500px]"
+          >
+            <button
+              class="text-left text-sm uppercase tracking-[0.20rem] py-[6px]"
+              @click="headline_idx = 0"
+              :class="headline_idx == 0 ? 'text-white' : 'text-gray-400'"
+            >
+              Vad erbjuder jag?
+            </button>
+            <button
+              class="text-left text-sm uppercase tracking-[0.20rem] py-[6px]"
+              @click="headline_idx = 1"
+              :class="headline_idx == 1 ? 'text-white' : 'text-gray-400'"
+            >
+              Utvecklingsprocessen
+            </button>
+            <button
+              class="text-left text-sm uppercase tracking-[0.20rem] py-[6px]"
+              @click="headline_idx = 2"
+              :class="headline_idx == 2 ? 'text-white' : 'text-gray-400'"
+            >
+              Om mig
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom left corner -->
+        <div
+          class="mb-0 mt-auto col-start-1 row-start-3 max-w-[75px] min-h-[75px] border-l border-b border-prim"
+        ></div>
+
+        <!-- Topic description -->
+        <div
+          class="flex flex-col gap-4 max-w-[450px] col-start-2 row-start-3 mt-8"
+          x-show="headline_idx == 0"
+        >
+          <p class="uppercase text-xl tracking-[0.2rem] font-medium relative">
+            <span
+              class="absolute left-[-1.5rem] top-[-1rem] text-6xl text-prim/20"
+              >V</span
+            >
+            Vad erbjuder jag?
+          </p>
+          <p class="text-gray-300 leading-5 min-w-[400px] min-h-[180px]">
+            Med mig som utvecklare får du en skräddarsydd process där vi, genom
+            kontinuerlig dialog, utvecklar en hemsida och användarupplevelse som
+            är anpassad helt efter era önskemål. Oavsett om ni önskar
+            nyutveckling eller uppdatering av en befintlig hemsida så tar jag er
+            hela vägen från idé till färdig produkt.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-4 max-w-[450px] col-start-2 row-start-3 mt-8"
+          x-show="headline_idx == 1"
+        >
+          <p class="uppercase text-xl tracking-[0.2rem] font-medium relative">
+            <span
+              class="absolute left-[-1.5rem] top-[-1rem] text-6xl text-prim/20"
+              >U</span
+            >
+            Utvecklingsprocessen
+          </p>
+          <p class="text-gray-300 leading-5 min-w-[400px] min-h-[180px]">
+            Utvecklingen av er hemsida sker i flera delsteg. Först går vi
+            gemensamt igenom era initiala idéer, önskemål och de krav ni ställer
+            på hemsidans funktionalitet. Jag tar sedan fram förslag på layout
+            och design. Efter att dessa godkänts bygger jag en prototyp av er
+            hemsida varefter den lanseras. Givetvis är ni involverade i samtliga
+            steg till den grad ni önskar.
+          </p>
+        </div>
+        <div
+          class="flex flex-col gap-4 max-w-[450px] col-start-2 row-start-3 mt-8"
+          x-show="headline_idx == 2"
+        >
+          <p class="uppercase text-xl tracking-[0.2rem] font-medium relative">
+            <span
+              class="absolute left-[-1.5rem] top-[-1rem] text-6xl text-prim/20"
+              >O</span
+            >
+            Om mig
+          </p>
+          <p class="text-gray-300 leading-5 min-w-[400px] min-h-[180px]">
+            Mitt namn är Ricky Klasson. Jag är civilingenjör i grunden och
+            arbetar till vardags med mjukvaruutveckling. Mitt intresse för
+            hemsidor började för ett tiotal år sedan under mina gymnasiestudier.
+            De senaste åren har intresset vuxit till den grad att jag börjat
+            arbeta för att göra det till mer än en fritidssyssla.
+          </p>
+        </div>
+
+        <!-- CTA buttons-->
+        <div class="flex gap-3 mt-8 col-start-2 row-start-4">
+          <a href="#kontakt"
+            ><button
+              class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim"
+            >
+              kontakta mig
+            </button></a
+          >
+          <a href="#projekt"
+            ><button
+              class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-prim bg-bg border-2 border-prim"
+            >
+              projekt
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
