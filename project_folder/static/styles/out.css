@@ -848,6 +848,14 @@ h2 {
   min-height: 240px;
 }
 
+.min-h-\[260px\] {
+  min-height: 260px;
+}
+
+.min-h-\[270px\] {
+  min-height: 270px;
+}
+
 .w-screen {
   width: 100vw;
 }
