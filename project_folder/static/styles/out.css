@@ -1155,6 +1155,11 @@ h2 {
   background-color: rgb(179 254 213 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#121a15\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 26 21 / var(--tw-bg-opacity));
+}
+
 .bg-mobile {
   background-image: url('/static/images/mobile_bg.jpg');
 }

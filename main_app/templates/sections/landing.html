@@ -12,11 +12,6 @@
   <div
     class="absolute lg:fixed bottom-24 left-[120px] -z-10 lg:top-36 lg:right-0 lg:left-auto lg:bottom-auto"
   ></div>
-  <!-- Background image -->
-  <div
-    class="bg-mobile md:bg-desktop bg-cover absolute min-h-screen w-screen opacity-5 -z-50 scale-[130%] transition-[top,left] ease-linear duration-75"
-    :style="{left: mouse_x * -30 + 'px', top: mouse_y * -30 + 'px'}"
-  ></div>
   <!-- Profile image -->
   <img
     src="{% static 'images/ricky_cropped_480.png' %}"
@@ -90,7 +85,7 @@
               Utvecklingen av din hemsida börjar med en diskussion kring dina
               idéer, önskemål och de krav du ställer på hemsidans
               funktionalitet. Sedan sker ett iterativt arbete där jag tar fram
-              förslag på layout och design så att samtliga av dina krav möts.
+              förslag på layout och design för att möta samtliga av dina krav.
               Till slut bygger jag en prototyp och driftsätter hemsidan. Om du
               så önskar bistår jag dig med enkla, intutiva verktyg så att du
               själv löpande kan uppdatera innehållet av din hemsida.
@@ -111,7 +106,7 @@
             <p x-show="open_idx == 3" class="text-sm text-gray-300 ml-2 py-2">
               Mitt namn är Ricky. Jag är civilingenjör i grunden och arbetar
               till vardags med mjukvaruutveckling. Mitt intresse för
-              webbutveckling började för ett tiotal år sedan under mina
+              webbapplikationer började för ett tiotal år sedan under mina
               gymnasiestudier och har sedan dess vuxit sig till en mindre
               verksamhet. Jag jobbar för att bistå mindre företag med
               skräddarsydda hemsidor för att stärka deras närvaro på webben.
@@ -178,7 +173,7 @@
               @click="headline_idx = 2"
               :class="headline_idx == 2 ? 'text-white' : 'text-gray-400'"
             >
-            Vem är jag?
+              Vem är jag?
             </button>
           </div>
         </div>
@@ -223,7 +218,7 @@
             Utvecklingen av din hemsida börjar med en diskussion kring dina
             idéer, önskemål och de krav du ställer på hemsidans funktionalitet.
             Sedan sker ett iterativt arbete där jag tar fram förslag på layout
-            och design så att samtliga av dina krav möts. Till slut bygger jag
+            och design för att möta samtliga av dina krav. Till slut bygger jag
             en prototyp och driftsätter hemsidan. Om du så önskar bistår jag dig
             med enkla, intutiva verktyg så att du själv löpande kan uppdatera
             innehållet av din hemsida.
@@ -242,7 +237,7 @@
           </p>
           <p class="text-gray-300 leading-6 min-w-[400px] min-h-[270px]">
             Mitt namn är Ricky. Jag är civilingenjör i grunden och arbetar till
-            vardags med mjukvaruutveckling. Mitt intresse för webbutveckling
+            vardags med mjukvaruutveckling. Mitt intresse för webbapplikationer
             började för ett tiotal år sedan under mina gymnasiestudier och har
             sedan dess vuxit sig till en mindre verksamhet. Jag jobbar för att
             bistå mindre företag med skräddarsydda hemsidor för att stärka deras
