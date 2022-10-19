@@ -15,10 +15,6 @@ module.exports = {
           '50%': { transform: 'translateX(-10px)' },
         },
       },
-      backgroundImage: {
-        'desktop': "url('/static/images/desktop_bg.jpg')",
-        'mobile': "url('/static/images/mobile_bg.jpg')",
-      },
       animation: {
         'bounce-left': 'bounce_left 2s linear infinite',
       },
