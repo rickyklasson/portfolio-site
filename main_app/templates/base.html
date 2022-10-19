@@ -21,6 +21,9 @@
 </head>
 
 <body x-data="{menu_open: false}">
+    <!-- Large ARK text bg -->
+    <p class="fixed right-[-50px] lg:right-[0px] top-[120px] lg:top-[140px] text-[188px] text-[#222222]/40 -rotate-90 -z-50 lg:text-[240px] lg:text-[#222222]/20">ARK</p>
+
     <!-- Insert main code here -->
     <div class="overflow-y-scroll overflow-x-hidden h-screen scroll-smooth" @click="menu_open = false" @scroll="menu_open = false">
         {% block content %}
