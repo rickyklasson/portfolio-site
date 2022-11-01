@@ -25,7 +25,7 @@ SECURE_SSL_REDIRECT = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['rickyklasson.eu.pythonanywhere.com']
+ALLOWED_HOSTS = ['rickyklasson.eu.pythonanywhere.com', 'www.arkutveckling.com']
 
 
 # Application definition
