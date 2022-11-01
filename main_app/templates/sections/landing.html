@@ -12,12 +12,6 @@
   <div
     class="absolute lg:fixed bottom-24 left-[120px] -z-10 lg:top-36 lg:right-0 lg:left-auto lg:bottom-auto"
   ></div>
-  <!-- Profile image -->
-  <img
-    src="{% static 'images/ricky_cropped_480.png' %}"
-    alt="Developer profile image"
-    class="absolute brightness-[40%] bottom-[-30px] left-0 max-w-[300px] bg-cover -z-10 lg:min-w-[500px]"
-  />
 
   <!-- Outer container for margin -->
   <div class="relative p-8 md:px-24 md:pb-16">
@@ -131,10 +125,22 @@
           </button></a
         >
       </div>
+      <!-- Profile image -->
+      <img
+        src="{% static 'images/ricky_520_desat.png' %}"
+        alt="Developer profile image"
+        class="brightness-[60%] mt-4 max-w-[250px] max-h-[250px] border-2 border-prim pt-4 px-8 rounded-full -z-10 lg:min-w-[500px]"
+      />
     </div>
     <!-- Container for content on desktop -->
     <div class="flex justify-center pl-32" x-data="{headline_idx: 0}">
       <div class="hidden lg:grid auto-cols-min auto-rows-min">
+        <!-- Profile image -->
+        <img
+          src="{% static 'images/ricky_cropped_480.png' %}"
+          alt="Developer profile image"
+          class="absolute brightness-[40%] bottom-[-30px] left-0 max-w-[300px] bg-cover -z-10 lg:min-w-[500px]"
+        />
         <!-- Header text -->
         <div class="mt-16 col-start-1 col-span-2">
           <p class="uppercase text-prim opacity-75 lg:text-3xl">
@@ -249,7 +255,7 @@
         <div class="flex gap-3 mt-8 col-start-2 row-start-4">
           <a href="#kontakt"
             ><button
-              class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim"
+              class="py-3 px-6 text-left tracking-[0.1rem] uppercase font-medium rounded-[5px] text-bg bg-prim border-2 border-prim"
             >
               kontakta mig
             </button></a
