@@ -3,16 +3,17 @@
 <!-- Container for landing page -->
 <section
   id="landing"
-  class="relative w-screen min-h-screen tracking-[0.12rem] overflow-hidden"
+  class="relative w-screen h-screen tracking-[0.12rem] overflow-hidden"
   @mousemove="mouse_x = $event.pageX / window.innerWidth - 0.5; mouse_y = $event.pageY / window.innerHeight - 0.5; "
   @mouseenter="mouse_x = $event.pageX / window.innerWidth - 0.5; mouse_y = $event.pageY / window.innerHeight - 0.5; "
   x-data="{mouse_x: 0, mouse_y: 0}"
 >
-  <!-- Background initials -->
-  <div
-    class="absolute lg:fixed bottom-24 left-[120px] -z-10 lg:top-36 lg:right-0 lg:left-auto lg:bottom-auto"
-  ></div>
-
+  <!-- Profile image -->
+  <img
+    src="{% static 'images/ricky_cropped_480.png' %}"
+    alt="Developer profile image"
+    class="hidden lg:block absolute brightness-[40%] bottom-0 left-0 mb-[-40px] max-w-[300px] bg-cover -z-10 lg:min-w-[500px]"
+  />
   <!-- Outer container for margin -->
   <div class="relative p-8 md:px-24 md:pb-16">
     <!-- Small ARK text and upper right corner -->
@@ -20,7 +21,7 @@
       <p
         class="mt-[-6px] uppercase text-[10px] text-prim/40 font-medium tracking-[0.2rem] lg:tracking-[0.3rem]"
       >
-        ark - webb och mjukvara
+        ark - utveckling
       </p>
       <!-- Upper right corner -->
       <div class="w-[5rem] h-[5rem] border-t-2 border-r-2 border-prim"></div>
@@ -135,12 +136,6 @@
     <!-- Container for content on desktop -->
     <div class="flex justify-center pl-32" x-data="{headline_idx: 0}">
       <div class="hidden lg:grid auto-cols-min auto-rows-min">
-        <!-- Profile image -->
-        <img
-          src="{% static 'images/ricky_cropped_480.png' %}"
-          alt="Developer profile image"
-          class="absolute brightness-[40%] bottom-[-30px] left-0 max-w-[300px] bg-cover -z-10 lg:min-w-[500px]"
-        />
         <!-- Header text -->
         <div class="mt-16 col-start-1 col-span-2">
           <p class="uppercase text-prim opacity-75 lg:text-3xl">
